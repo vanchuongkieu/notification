@@ -25,8 +25,6 @@ export default {
     this.initializeApp();
     this.getNotiTrouble();
     this.getNotiKTCloseTrouble();
-  },
-  mounted() {
     window.addEventListener('beforeinstallprompt', (e) => {
       e.preventDefault();
       this.beforeinstallprompt = e;
@@ -76,7 +74,7 @@ export default {
       });
     },
     initializeApp() {
-      if ('serviceWorker' in navigator && 'PushManager' in window) {
+      if ('serviceWorker' in navigator) {
         navigator.serviceWorker.ready.then((swReg) => {
           this.swRegistration = swReg;
         });
